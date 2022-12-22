@@ -12,8 +12,9 @@ defaults:
 jobs:
   typescript:
     strategy:
-      node_version: [ 14.x, 16.x ]
-      os: [ ubuntu-latest ]
+      matrix:
+        node_version: [ 14.x, 16.x ]
+        os: [ ubuntu-latest ]
 
     runs-on: ubuntu-latest
     steps:
