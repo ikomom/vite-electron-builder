@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         node_version: [ 16.x ]
-        os: [ windows-latest, ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
 
     runs-on: ubuntu-latest
 
@@ -52,8 +52,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm config set auto-install-peers true
-      - run: pnpm i
+      - run: pnpm config set auto-install-peers true && pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
@@ -73,8 +72,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm config set auto-install-peers true
-      - run: pnpm i
+      - run: pnpm config set auto-install-peers true && pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
