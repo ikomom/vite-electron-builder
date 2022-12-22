@@ -11,16 +11,22 @@ defaults:
 
 jobs:
   typescript:
-    runs-on: ubuntu-latest
+    strategy:
+      node_version: [ 14.x, 16.x ]
+      os: [ ubuntu-latest ]
 
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16 # Need for npm >=7.7
-          cache: 'npm'
+      - uses: pnpm/action-setup@v2
 
-      - run: npm ci
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: pnpm
+
+      - run: pnpm ci
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 

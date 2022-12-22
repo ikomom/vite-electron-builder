@@ -3,11 +3,6 @@
   "description": "Secure boilerplate for Electron app based on Vite",
   "version": "1.0.2",
   "private": true,
-  "author": {
-    "email": "kozackunisoft@gmail.com",
-    "name": "Alex Kozack",
-    "url": "https://kozack.me"
-  },
   "main": "packages/main/dist/index.cjs",
   "scripts": {
     "dev": "node scripts/watch.mjs",
