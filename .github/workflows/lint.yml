@@ -52,7 +52,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm ci
+      - run: pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 

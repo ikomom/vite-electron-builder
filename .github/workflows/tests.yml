@@ -30,7 +30,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm ci
+      - run: pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
       - run: npm run test:${{ matrix.package }} --if-present
@@ -53,7 +53,7 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
-      - run: pnpm ci
+      - run: pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
