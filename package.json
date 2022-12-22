@@ -3,6 +3,7 @@
   "description": "Secure boilerplate for Electron app based on Vite",
   "version": "1.0.2",
   "private": true,
+  "packageManager": "pnpm@7.4.0",
   "main": "packages/main/dist/index.cjs",
   "scripts": {
     "dev": "node scripts/watch.mjs",
