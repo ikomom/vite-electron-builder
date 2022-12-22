@@ -4,6 +4,11 @@
   "version": "1.0.2",
   "private": true,
   "packageManager": "pnpm@7.4.0",
+  "author": {
+    "email": "ikonon557@gmail.com",
+    "name": "ikomom",
+    "url": "https://github.com/ikomom"
+  },
   "main": "packages/main/dist/index.cjs",
   "scripts": {
     "dev": "node scripts/watch.mjs",
