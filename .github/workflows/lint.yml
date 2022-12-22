@@ -37,7 +37,7 @@ jobs:
   eslint:
     strategy:
       matrix:
-        node_version: [ 14.x, 16.x ]
+        node_version: [ 16.x ]
         os: [ windows-latest, ubuntu-latest, macos-latest ]
 
     runs-on: ubuntu-latest

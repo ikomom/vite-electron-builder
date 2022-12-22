@@ -25,7 +25,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ macos-latest, ubuntu-latest, windows-latest ]
-        node_version: [ 14.x, 16.x ]
+        node_version: [ 16.x ]
 
     runs-on: ${{ matrix.os }}
 
@@ -53,7 +53,7 @@ jobs:
           max_attempts: 3
           retry_on: error
           shell: 'bash'
-          command: pnpm dlx --no-install electron-builder --config .electron-builder.config.js --publish ${{ inputs.dry-run && 'never' || 'always' }}
+          command: pnpm dlx electron-builder --config .electron-builder.config.js --publish ${{ inputs.dry-run && 'never' || 'always' }}
         env:
           # Code Signing params
           # See https://www.electron.build/code-signing
