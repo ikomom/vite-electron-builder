@@ -52,6 +52,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
+      - run: pnpm config set auto-install-peers true
       - run: pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
@@ -72,5 +73,9 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm add prettier
+      - run: pnpm config set auto-install-peers true
+      - run: pnpm i
+          env:
+            PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
       - run: pnpm dlx prettier --check "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json}"
