@@ -52,28 +52,8 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm config set auto-install-peers true && pnpm i
+      - run: pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - run: pnpm run lint
-
-  # This job just check code style for in-template contributions.
-  code-style:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-
-      - name: Set node version to ${{ matrix.node_version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node_version }}
-          cache: pnpm
-
-      - run: pnpm config set auto-install-peers true && pnpm i
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-
-      - run: pnpm dlx prettier --check "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json}"

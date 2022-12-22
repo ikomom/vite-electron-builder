@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@types/node': 18.11.17
   '@typescript-eslint/eslint-plugin': 5.47.0
+  '@typescript-eslint/parser': ^5.47.0
   '@vitejs/plugin-vue': 4.0.0
   '@vue/test-utils': 2.2.6
   cross-env: 7.0.3
@@ -29,6 +30,7 @@ dependencies:
 devDependencies:
   '@types/node': 18.11.17
   '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
+  '@typescript-eslint/parser': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.2+vue@3.2.45
   '@vue/test-utils': 2.2.6_vue@3.2.45
   cross-env: 7.0.3
