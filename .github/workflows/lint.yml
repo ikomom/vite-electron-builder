@@ -56,7 +56,7 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-      - run: pnpm run lint --if-present
+      - run: pnpm run lint
 
   # This job just check code style for in-template contributions.
   code-style:
@@ -72,5 +72,5 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: pnpm
 
-      - run: pnpm i prettier
+      - run: pnpm add prettier
       - run: pnpm dlx prettier --check "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json}"
