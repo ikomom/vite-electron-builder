@@ -8,7 +8,7 @@ const APP_VERSION = import.meta.env.VITE_APP_VERSION;
 
 <template>
   <img
-    alt="Vue logo"
+    alt="Vue logo "
     src="../assets/logo.svg"
     width="150"
   />
@@ -52,16 +52,6 @@ const APP_VERSION = import.meta.env.VITE_APP_VERSION;
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 60px auto;
-  max-width: 700px;
-}
-
 fieldset {
   margin: 2rem;
   padding: 1rem;

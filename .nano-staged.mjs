@@ -8,17 +8,15 @@ export default {
    * @param {string[]} filenames
    * @return {string[]}
    */
-  '{package-lock.json,packages/**/{*.ts,*.vue,tsconfig.json}}': ({filenames}) => {
+  '{pnpm-lock.yaml,packages/**/{*.ts,*.vue,tsconfig.json}}': ({filenames}) => {
     // if dependencies was changed run type checking for all packages
-    if (filenames.some(f => f.endsWith('package-lock.json'))) {
+    if (filenames.some(f => f.endsWith('pnpm-lock.yaml'))) {
       return ['npm run typecheck'];
     }
 
     // else run type checking for staged packages
     const fileNameToPackageName = filename =>
       filename.replace(resolve(process.cwd(), 'packages') + sep, '').split(sep)[0];
-    return [...new Set(filenames.map(fileNameToPackageName))].map(
-      p => `npm run typecheck:${p}`,
-    );
+    return [...new Set(filenames.map(fileNameToPackageName))].map(p => `npm run typecheck:${p}`);
   },
 };

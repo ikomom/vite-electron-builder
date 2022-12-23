@@ -4,7 +4,9 @@
 
 package.json
 package-lock.json
+pnpm-lock.yaml
 .electron-vendors.cache.json
 
 .github
 .idea
+.vscode
