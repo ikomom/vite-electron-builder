@@ -55,6 +55,7 @@ jobs:
       - run: pnpm i
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-
-      - run: pnpm run lint
-      - run: pnpm run format
+      - name: Check CodeStyle
+        run: npx prettier --check "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,json}"
+      - name: Eslint
+        run: npm run lint --if-present
