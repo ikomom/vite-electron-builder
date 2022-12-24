@@ -34,7 +34,7 @@ defaults:
     shell: 'bash'
 
 jobs:
-  eslint:
+  lint:
     strategy:
       matrix:
         node_version: [ 16.x ]
@@ -57,3 +57,4 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - run: pnpm run lint
+      - run: pnpm run format
