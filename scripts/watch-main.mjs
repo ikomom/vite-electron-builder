@@ -28,9 +28,8 @@ console.log('hhh', 'xxx');
  * @param {import('vite').ViteDevServer} watchServer
  */
 function setPreload() {
-  return  build({
+  return build({
     mode,
     configFile: path.resolve('../packages/renderer/vite.config.js'),
   });
-
 }
