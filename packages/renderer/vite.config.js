@@ -8,6 +8,7 @@ import {injectAppVersion} from '../../version/inject-app-version-plugin.mjs';
 import {Vuetify3Resolver} from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
+import VueMacros from 'unplugin-vue-macros/vite';
 
 const PACKAGE_ROOT = __dirname;
 const PROJECT_ROOT = join(PACKAGE_ROOT, '../..');
@@ -22,7 +23,7 @@ const config = {
   envDir: PROJECT_ROOT,
   resolve: {
     alias: {
-      '/@/': join(PACKAGE_ROOT, 'src') + '/',
+      '@/': join(PACKAGE_ROOT, 'src') + '/',
     },
   },
   base: '',
@@ -46,7 +47,13 @@ const config = {
     environment: 'happy-dom',
   },
   plugins: [
-    vue(),
+    VueMacros({
+      plugins: {
+        vue: vue({
+          reactivityTransform: true,
+        }),
+      },
+    }),
     renderer.vite({
       preloadEntry: join(PACKAGE_ROOT, '../preload/src/index.ts'),
     }),
@@ -57,6 +64,11 @@ const config = {
       imports: ['vue', 'vue/macros', 'vue-router'],
       dts: './types/auto-imports.d.ts',
       vueTemplate: true,
+      eslintrc: {
+        enabled: true, // Default `false`
+        filepath: join(PACKAGE_ROOT, './.eslintrc-auto-import.json'), // Default `./.eslintrc-auto-import.json`
+        globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+      },
     }),
     // https://github.com/antfu/vite-plugin-components
     Components({

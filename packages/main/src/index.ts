@@ -1,6 +1,6 @@
 import {app} from 'electron';
 import './security-restrictions';
-import {restoreOrCreateWindow} from '/@/mainWindow';
+import {restoreOrCreateWindow} from '@/mainWindow';
 
 /**
  * 防止electron运行多个实例。
