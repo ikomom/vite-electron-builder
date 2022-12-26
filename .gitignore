@@ -15,3 +15,7 @@ thumbs.db
 
 # File-based project format
 *.iws
+
+# auto import ts
+auto-imports.d.ts
+components.d.ts

@@ -2,6 +2,7 @@
 import ReactiveCounter from '/@/components/ReactiveCounter.vue';
 import ReactiveHash from '/@/components/ReactiveHash.vue';
 import ElectronVersions from '/@/components/ElectronVersions.vue';
+import ClipBoard from '/@/pages/ClipBoard.vue';
 
 const APP_VERSION = import.meta.env.VITE_APP_VERSION;
 </script>
@@ -49,6 +50,7 @@ const APP_VERSION = import.meta.env.VITE_APP_VERSION;
     Edit
     <code>packages/renderer/src/App.vue</code> to test hot module replacement.
   </p>
+  <ClipBoard />
 </template>
 
 <style>

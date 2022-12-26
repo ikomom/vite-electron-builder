@@ -3,7 +3,7 @@ import './security-restrictions';
 import {restoreOrCreateWindow} from '/@/mainWindow';
 
 /**
- * Prevent electron from running multiple instances.
+ * 防止electron运行多个实例。
  */
 const isSingleInstance = app.requestSingleInstanceLock();
 if (!isSingleInstance) {
@@ -13,12 +13,12 @@ if (!isSingleInstance) {
 app.on('second-instance', restoreOrCreateWindow);
 
 /**
- * Disable Hardware Acceleration to save more system resources.
+ * 关闭“硬件加速”功能，节省更多系统资源。
  */
 app.disableHardwareAcceleration();
 
 /**
- * Shout down background process if all windows was closed
+ * 如果所有窗口都关闭，关闭后台进程
  */
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -27,12 +27,13 @@ app.on('window-all-closed', () => {
 });
 
 /**
+ * 激活恢复状态
  * @see https://www.electronjs.org/docs/latest/api/app#event-activate-macos Event: 'activate'.
  */
 app.on('activate', restoreOrCreateWindow);
 
 /**
- * Create the application window when the background process is ready.
+ * 当后台进程准备就绪时，创建应用程序窗口。
  */
 app
   .whenReady()
@@ -55,7 +56,7 @@ app
 // }
 
 /**
- * Check for new version of the application - production mode only.
+ * 检查应用程序的新版本-仅用于生产模式。
  */
 if (import.meta.env.PROD) {
   app

@@ -5,6 +5,9 @@ import vue from '@vitejs/plugin-vue';
 import {renderer} from 'unplugin-auto-expose';
 import {join} from 'node:path';
 import {injectAppVersion} from '../../version/inject-app-version-plugin.mjs';
+import {Vuetify3Resolver} from 'unplugin-vue-components/resolvers';
+import Components from 'unplugin-vue-components/vite';
+import AutoImport from 'unplugin-auto-import/vite';
 
 const PACKAGE_ROOT = __dirname;
 const PROJECT_ROOT = join(PACKAGE_ROOT, '../..');
@@ -48,6 +51,18 @@ const config = {
       preloadEntry: join(PACKAGE_ROOT, '../preload/src/index.ts'),
     }),
     injectAppVersion(),
+    // https://github.com/antfu/unplugin-auto-import
+    AutoImport({
+      // '@vueuse/core'
+      imports: ['vue', 'vue/macros', 'vue-router'],
+      dts: './types/auto-imports.d.ts',
+      vueTemplate: true,
+    }),
+    // https://github.com/antfu/vite-plugin-components
+    Components({
+      dts: './types/components.d.ts',
+      resolvers: [Vuetify3Resolver()],
+    }),
   ],
 };
 
