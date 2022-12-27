@@ -8,7 +8,7 @@ import {injectAppVersion} from '../../version/inject-app-version-plugin.mjs';
 import {Vuetify3Resolver} from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
-import VueMacros from 'unplugin-vue-macros/vite';
+import DefineOptions from 'unplugin-vue-define-options/vite';
 
 const PACKAGE_ROOT = __dirname;
 const PROJECT_ROOT = join(PACKAGE_ROOT, '../..');
@@ -47,13 +47,10 @@ const config = {
     environment: 'happy-dom',
   },
   plugins: [
-    VueMacros({
-      plugins: {
-        vue: vue({
-          reactivityTransform: true,
-        }),
-      },
+    vue({
+      reactivityTransform: true,
     }),
+    DefineOptions(),
     renderer.vite({
       preloadEntry: join(PACKAGE_ROOT, '../preload/src/index.ts'),
     }),
