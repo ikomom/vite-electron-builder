@@ -1,5 +1,8 @@
 <template>
-  <div> home </div>
+  <div>
+    home
+    <router-link to="/clipBoard">剪切板</router-link>
+  </div>
 </template>
 
 <script lang="ts" setup></script>

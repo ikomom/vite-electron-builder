@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@mdi/font': ^7.1.96
   '@types/node': 18.11.17
   '@typescript-eslint/eslint-plugin': 5.47.0
   '@typescript-eslint/parser': ^5.47.0
@@ -38,6 +39,7 @@ dependencies:
   vuetify: 3.0.6_vue@3.2.45
 
 devDependencies:
+  '@mdi/font': 7.1.96
   '@types/node': 18.11.17
   '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
   '@typescript-eslint/parser': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
@@ -393,6 +395,10 @@ packages:
       tmp-promise: 3.0.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@mdi/font/7.1.96:
+    resolution: {integrity: sha512-Imag6npmfkBDi2Ze2jiZVAPTDIKLxhz2Sx82xJ2zctyAU5LYJejLI5ChnDwiD9bMkQfVuzEsI98Q8toHyC+HCg==}
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:

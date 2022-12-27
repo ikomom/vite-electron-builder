@@ -17,9 +17,12 @@
     /** These rules are disabled because they are incompatible with prettier */
     "vue/html-self-closing": "off",
     "vue/singleline-html-element-content-newline": "off",
-    "vue/multi-word-component-names": ["error", {
-      "ignores": ["index"]
-    }]
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        "ignores": ["index"]
+      }
+    ]
   },
   "globals": {
     "defineOptions": true
